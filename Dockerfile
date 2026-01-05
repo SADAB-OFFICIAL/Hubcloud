@@ -12,8 +12,8 @@ COPY api ./api
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose port for Render
+# Expose port (Render will map $PORT)
 EXPOSE 10000
 
-# Start uvicorn server
+# Start FastAPI server
 CMD ["uvicorn", "api.extract:app", "--host", "0.0.0.0", "--port", "10000"]
