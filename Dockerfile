@@ -1,19 +1,19 @@
-
+# Base Python image
 FROM python:3.12-slim
 
-
+# Set working directory
 WORKDIR /app
 
-
+# Copy files
 COPY requirements.txt .
 COPY extractor.py .
-COPY api/extract.py ./api/
+COPY api ./api
 
-
+# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Expose port for Render
+EXPOSE 10000
 
-EXPOSE 8000
-
-
-CMD ["uvicorn", "api.extract:app", "--host", "0.0.0.0", "--port", "8000"]
+# Start uvicorn server
+CMD ["uvicorn", "api.extract:app", "--host", "0.0.0.0", "--port", "10000"]
