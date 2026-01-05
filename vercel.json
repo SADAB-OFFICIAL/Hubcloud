@@ -2,10 +2,14 @@
   "version": 2,
   "functions": {
     "api/extract.py": {
-      "runtime": "python3.12"
+      "runtime": "vercel-python@0.1.0",
+      "maxDuration": 10
     }
   },
   "routes": [
-    { "src": "/api/extract", "dest": "api/extract.py" }
+    {
+      "src": "/api/extract",
+      "dest": "api/extract.py"
+    }
   ]
 }
